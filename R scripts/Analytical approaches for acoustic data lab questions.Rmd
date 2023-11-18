@@ -1,0 +1,103 @@
+---
+title: "Analytical Approaches for Acoustic Data Lab"
+author: "Your Name Here"
+date: "`r Sys.Date()`"
+output: pdf_document
+urlcolor: blue
+---
+
+```{r include = FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,          # don't show code
+  warning = FALSE,       # don't show warnings
+  message = FALSE,       # don't show messages (less serious warnings)
+  cache = FALSE,         # set to TRUE to save results from last compilation
+  fig.align = "center"   # center figures
+)
+
+```
+
+```{r include=FALSE}
+library(stringr)
+library(ggpubr)
+library(dplyr)
+```
+
+# Part 1. Exploratory analysis of different sound types
+
+Question 1. Looking at the sound file and associated selection table for S11_20180319_060002.wav, what do you notice about the different sound classes? What is similar? What is different?
+
+ADD YOUR ANSWER HERE 
+
+Question 2.	Before you re-run the analysis with the new sound class, briefly describe the sound type you annotated. Was it long or short duration? High or low frequency? 
+
+ADD YOUR ANSWER HERE 
+
+Question 3.	How do you interpret the results of the PCA and LDA plots with the new sound class you added?
+
+ADD YOUR ANSWER HERE 
+
+# Part 2. Biodiversity in different land use types
+
+Question 1.	Which land use type do you predict will have the highest biodiversity? Which land use type do you predict will have the lowest?
+
+ADD YOUR ANSWER HERE 
+
+Question 2.	Does your exploratory data analysis support these predictions? Why or why not? What would be the next steps in testing these predictions?
+
+ADD YOUR ANSWER HERE 
+
+Question 3.	Is the number of species detected per 20-minute sampling period the best way to estimate species richness across land use types? What are some potential confounding factors? What are some alternative approaches that could be used?
+
+ADD YOUR ANSWER HERE 
+
+# Part 3. Design your own study using data from Sapsucker Woods
+## A. Study design
+
+Question 1. What is the research question you decided to focus on? Please include one sentence about the study species, your research question, your expected results, and an explanation as to why you expect to see these results. Indicate if your study species is resident or migratory. 
+
+Research question:
+
+Study species:
+
+Expected results:
+
+Why you expect to see these results: 
+
+## B. Data structure 
+
+Question 2. What is the underlying structure of your data (nominal, ordinal, discrete, continuous)? Note that you can have multiple types of data structures depending on your research question. 
+
+ADD YOUR ANSWER HERE 
+
+## C. Univariate data exploration 
+Question 3. Univariate plots of weather data
+
+Which variable did you choose?
+What is a typical observation?
+How diverse are the data?
+Are extreme observations rare?
+
+
+Question 4. Univariate plots of observation data
+What is a typical observation?
+Do the data appear normally distributed? 
+How diverse are the data?
+Are extreme observations rare?
+
+## D. Bi- or multivariate data exploration
+8.	Does your exploratory data analysis support your predictions? Why or why not? 
+
+ADD YOUR ANSWER HERE 
+
+
+## E. Possible sources of non-independence in the data
+One of the main assumptions of using linear models is that data are independent. What are some potential sources of non-independence in your dataset?  
+
+ADD YOUR ANSWER HERE
+
+## Final question. 
+
+"Many PAM studies occur opportunistically and are not the result of an
+experimental design (Kent el al. 2022)." What kind of study would you like to do to further answer your research question?   
+
