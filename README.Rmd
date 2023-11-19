@@ -1,0 +1,31 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Analytical-approaches-for-acoustic-data-2023
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+This is the GitHub repository for the Analytical Approaches for Acoustic Data Lab for the NTRES 3150 Intro Conservation Bioacoustics Fall 2023 course. 
+
+
+
+
+```{r, echo=FALSE}
+# Now we can make a spectrogram. First lets read in the .wav file
+FemaleGibbonFile <- tuneR::readWave("data/ExploratoryAnalysis/SoundFiles/female.gibbon_2.wav")
+
+# There are many different packages that you can use to create spectrograms; here are two
+seewave::spectro(FemaleGibbonFile,flim=c(0,2.5))
+```
+

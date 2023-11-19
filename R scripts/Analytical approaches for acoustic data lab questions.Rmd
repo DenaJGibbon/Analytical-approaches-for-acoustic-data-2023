@@ -47,7 +47,7 @@ Question 2.	Does your exploratory data analysis support these predictions? Why o
 
 ADD YOUR ANSWER HERE 
 
-Question 3.	Is the number of species detected per 20-minute sampling period the best way to estimate species richness across land use types? What are some potential confounding factors? What are some alternative approaches that could be used?
+Question 3.	Is the number of species detected per 20-minute sampling period the best way to estimate species richness across land use types? What are some alternative approaches that could be used?
 
 ADD YOUR ANSWER HERE 
 

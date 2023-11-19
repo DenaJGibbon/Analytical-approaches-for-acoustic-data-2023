@@ -61,28 +61,15 @@ ggboxplot(data=SoundscapeTable,x='Call.type',y='Freq.95...Hz.')
 FemaleGibbonFile <- readWave("data/ExploratoryAnalysis/SoundFiles/female.gibbon_2.wav")
 
 # There are many different packages that you can use to create spectrograms; here are two
-seewave::spectro(FemaleGibbonFile,flim=c(0,3))
-phonTools::spectrogram(sound = FemaleGibbonFile@left,maxfreq=3000,windowlength = 24,fs=FemaleGibbonFile@samp.rate)
+seewave::spectro(FemaleGibbonFile,flim=c(0,2.5))
 
-# Lets check out spectrograms of all the signals; first we read in the sound files
-GreatArgusFile <- readWave("data/ExploratoryAnalysis/SoundFiles/argus_10.wav")
-Bird1File  <- readWave("data/ExploratoryAnalysis/SoundFiles/bird1_9.wav")
-Bird2File <- readWave("data/ExploratoryAnalysis/SoundFiles/bird2_20.wav")
-Insect1File <- readWave("data/ExploratoryAnalysis/SoundFiles/insect1_24.wav")
-
-# Now create the spectrograms
-seewave::spectro(FemaleGibbonFile,flim=c(0,3))
-seewave::spectro(GreatArgusFile,flim=c(0,3))
-seewave::spectro(Bird1File,flim=c(0,3))
-seewave::spectro(Bird2File,flim=c(0,3))
-seewave::spectro(Insect1File,flim=c(3,6))
 
 # Part 2. PCA: unsupervised classification ------------------------------------
 # We read in the selection table again (this will be important later)
 SelectionTableName <- 'data/ExploratoryAnalysis/S11_20180319_060002.Table.1.selections.txt' 
 
 # This is commented out for now, but we will use it later
-# SelectionTableName <- 'data/ExploratoryAnalysis/S11_20180319_060002.updatedTable.1.selections.txt' 
+#SelectionTableName <- 'data/ExploratoryAnalysis/S11_20180319_060002.updatedTable.1.selections.txt' 
 
 SoundscapeTable <- read.delim(SelectionTableName,
                               stringsAsFactors = F)

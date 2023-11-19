@@ -32,21 +32,13 @@ IthacaSubset$Month <- DateSplit[, 2]
 # Create a new column 'Month_Day' in the 'IthacaSubset' data frame by pasting together the 'Month' and 'Day' columns with an underscore '_' separator.
 IthacaSubset$Month_Day <- paste(IthacaSubset$Month, IthacaSubset$Day, sep = '_') 
 
-# Create boxplots for TMIN and PRCP by Month
-ggboxplot(data = IthacaSubset, x = 'Month', y = 'TMIN') 
-
-ggboxplot(data = IthacaSubset, x = 'Month', y = 'PRCP') 
-
 # Create a histogram of the weather variables
 gghistogram(data = IthacaSubset, x = 'PRCP') 
 
-gghistogram(data = IthacaSubset, x = 'TMIN') 
-
-gghistogram(data = IthacaSubset, x = 'TMAX') 
-
+# Create boxplots for TMIN and PRCP by Month
+ggboxplot(data = IthacaSubset, x = 'Month', y = 'TMIN') 
 
 # Read in the Sapsucker Woods annotation data -----------------------------
-
 # Read the SSW annotations from a CSV file
 SSWAnnotations <- read.csv("data/BiodiversityAnalysis/SSWannotations.csv")
 
@@ -56,9 +48,6 @@ SSWAnnotations$Month <- substr(SSWAnnotations$DATE, start = 5, stop = 6)
 SSWAnnotations$Day <- substr(SSWAnnotations$DATE, start = 7, stop = 8)
 SSWAnnotations$Month_Day <- paste(SSWAnnotations$Month, SSWAnnotations$Day, sep = '_')
 SSWAnnotations$Hour <- substr(str_split_fixed(SSWAnnotations$Filename, pattern = '_', n = 4)[, 4],1,2)
-
-# Merge the species tally data with Ithaca wather data based on Month_Day
-SSWAnnotationsMergedDF <- merge(SSWAnnotations, IthacaSubset, by = 'Month_Day')
 
 # Display the first few rows and the number of rows in SSWAnnotations
 head(SSWAnnotationsMergedDF)
@@ -73,7 +62,8 @@ table(SSWAnnotationsMergedDF$Species.eBird.Code)
 # Subset based on your species of interest --------------------------------
 
 # Subset SSWAnnotations for a specific species (e.g., "blujay")
-SSWAnnotationsSingleSpecies <- subset(SSWAnnotationsMergedDF, Species.eBird.Code == "blujay")
+SSWAnnotationsSingleSpecies <- 
+  subset(SSWAnnotationsMergedDF, Species.eBird.Code == "blujay")
 
 # NOTE: the code below shows how you can subset for two species of interest
 # SSWAnnotationsSingleSpecies <- subset(SSWAnnotationsMergedDF, Species.eBird.Code == "blujay"|Species.eBird.Code == "norcar")
@@ -90,10 +80,13 @@ SSWAnnotationsSingleSpeciesTally$n <- SSWAnnotationsSingleSpeciesTally$n/60
 # Merge the species tally data with IthacaSubset based on Month_Day
 SSWAnnotationsSingleSpeciesTallyMergedDF <- merge(SSWAnnotationsSingleSpeciesTally, IthacaSubset, by = 'Month_Day')
 
-
+# Univariate plot
 gghistogram(data=SSWAnnotationsSingleSpeciesTallyMergedDF,x='n')
 
+# Bivariate plots
 # Create scatter and boxplots for 'TMAX' and 'n' (count) by Month
 ggscatter(data = SSWAnnotationsSingleSpeciesTallyMergedDF, x = 'TMAX', y = 'n', facet.by ='Species.eBird.Code' )
 ggboxplot(data = SSWAnnotationsSingleSpeciesTallyMergedDF, x = 'Month', y = 'n', facet.by ='Species.eBird.Code')
+
+
 
