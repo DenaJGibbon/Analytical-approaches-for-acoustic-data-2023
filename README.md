@@ -18,7 +18,11 @@ Part 3. Design your own study in sapsucker woods.R
 
 ### And one RMarkdown template to answer questions related to the lab exercises:
 
-Analytical approaches for acoustic data lab questions.Rmd
+Analytical approaches for acoustic data lab questions.Rmd.
+
+### Here is a link to the sound file we will use for Part 1.
+
+<https://drive.google.com/file/d/1mV-uvbqbCtZ1DV0yXARuX7g60GBiSqAO/view?usp=sharing>
 
 <figure>
 <img src="README_files/figure-gfm/unnamed-chunk-2-1.png"

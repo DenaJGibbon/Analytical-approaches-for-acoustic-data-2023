@@ -28,7 +28,10 @@ Part 3. Design your own study in sapsucker woods.R
 
 ### And one RMarkdown template to answer questions related to the lab exercises:  
 
-Analytical approaches for acoustic data lab questions.Rmd
+Analytical approaches for acoustic data lab questions.Rmd. 
+
+### Here is a link to the sound file we will use for Part 1. 
+https://drive.google.com/file/d/1mV-uvbqbCtZ1DV0yXARuX7g60GBiSqAO/view?usp=sharing
 
 ```{r, echo=FALSE, fig.cap="Figure 1. Spectrogram of a gibbon female call from Part 1 of the lab exercises"}
 # Now we can make a spectrogram. First lets read in the .wav file
