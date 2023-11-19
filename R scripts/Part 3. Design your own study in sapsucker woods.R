@@ -50,23 +50,23 @@ SSWAnnotations$Month_Day <- paste(SSWAnnotations$Month, SSWAnnotations$Day, sep 
 SSWAnnotations$Hour <- substr(str_split_fixed(SSWAnnotations$Filename, pattern = '_', n = 4)[, 4],1,2)
 
 # Display the first few rows and the number of rows in SSWAnnotations
-head(SSWAnnotationsMergedDF)
-nrow(SSWAnnotationsMergedDF)
+head(SSWAnnotations)
+nrow(SSWAnnotations)
 
 # Get unique values in the 'Species.eBird.Code' column
-unique(SSWAnnotationsMergedDF$Species.eBird.Code)
+unique(SSWAnnotations$Species.eBird.Code)
 
 # Create a table to look at the number of observations by species
-table(SSWAnnotationsMergedDF$Species.eBird.Code)
+table(SSWAnnotations$Species.eBird.Code)
 
 # Subset based on your species of interest --------------------------------
 
 # Subset SSWAnnotations for a specific species (e.g., "blujay")
 SSWAnnotationsSingleSpecies <- 
-  subset(SSWAnnotationsMergedDF, Species.eBird.Code == "blujay")
+  subset(SSWAnnotations, Species.eBird.Code == "blujay")
 
 # NOTE: the code below shows how you can subset for two species of interest
-# SSWAnnotationsSingleSpecies <- subset(SSWAnnotationsMergedDF, Species.eBird.Code == "blujay"|Species.eBird.Code == "norcar")
+# SSWAnnotationsSingleSpecies <- subset(SSWAnnotations, Species.eBird.Code == "blujay"|Species.eBird.Code == "norcar")
 
 # Display the first few rows of the subset
 head(SSWAnnotationsSingleSpecies)
@@ -74,8 +74,6 @@ head(SSWAnnotationsSingleSpecies)
 # Count the occurrences of the species by Month_Day
 SSWAnnotationsSingleSpeciesTally <-  
   SSWAnnotationsSingleSpecies %>% count(Month_Day, Species.eBird.Code, .drop = FALSE)
-
-SSWAnnotationsSingleSpeciesTally$n <- SSWAnnotationsSingleSpeciesTally$n/60
 
 # Merge the species tally data with IthacaSubset based on Month_Day
 SSWAnnotationsSingleSpeciesTallyMergedDF <- merge(SSWAnnotationsSingleSpeciesTally, IthacaSubset, by = 'Month_Day')
