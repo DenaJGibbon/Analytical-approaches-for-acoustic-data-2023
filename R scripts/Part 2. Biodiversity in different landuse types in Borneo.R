@@ -32,9 +32,10 @@ length(unique(BiodiversityDataFrame$Point_count_ID))
 gghistogram(data=BiodiversityDataFrame,x='count')
 
 # Plot by site
-ggboxplot(data=BiodiversityDataFrame,x='Site',y='count')
+ggboxplot(data=BiodiversityDataFrame,x='Site',y='count', fill='Site')
 
-# We will only focus on the morning hours
+
+# Data exploration for early morning hours --------------------------------
 BiodiversityDataFrameAMOnly <-
   BiodiversityDataFrame[str_detect(BiodiversityDataFrame$Time,pattern = 'AM'),]
 
