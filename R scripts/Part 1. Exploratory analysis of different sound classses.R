@@ -52,13 +52,13 @@ ggboxplot(data=SoundscapeTable,x='Call.type',y='Freq.95...Hz.')
 # 
 # # This loop will write the shorter sound files to the directory indicated above
 # for(x in 1:length(ListofWavs)){
-#   writeWave(ListofWavs[[x]], 
+#   writeWave(ListofWavs[[x]],
 #             filename= paste('data/ExploratoryAnalysis/SoundFiles','/',SoundscapeTable$Call.type[x],
 #                             '_', x, '.wav',sep=''))
 # }
-
-# Now we can make a spectrogram. First lets read in the .wav file
-FemaleGibbonFile <- readWave("data/ExploratoryAnalysis/SoundFiles/female.gibbon_2.wav")
+# 
+# # Now we can make a spectrogram. First lets read in the .wav file
+# FemaleGibbonFile <- readWave("data/ExploratoryAnalysis/SoundFiles/female.gibbon_2.wav")
 
 # There are many different packages that you can use to create spectrograms; here are two
 #seewave::spectro(FemaleGibbonFile,flim=c(0,2.5))
