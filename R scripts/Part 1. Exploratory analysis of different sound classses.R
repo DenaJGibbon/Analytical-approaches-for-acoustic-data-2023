@@ -19,11 +19,11 @@ set.seed(4)
 
 # We can easily read in the sound file using the following line of code
 # NOTE: You put file.choose() in the console below to search for the full file path
-LongSoundFile <- tuneR::readWave("/Users/denaclink/Desktop/RStudioProjects/Analytical Approaches for Acoustic Data Lab/S11_20180319_060002.wav")
+#LongSoundFile <- tuneR::readWave("/Users/denaclink/Desktop/RStudioProjects/Analytical Approaches for Acoustic Data Lab/S11_20180319_060002.wav")
 
 # Now we can check the structure of the resulting .wav file
-LongSoundFile@left # This returns the values of the waveform
-LongSoundFile@samp.rate # This is the sample rate
+#LongSoundFile@left # This returns the values of the waveform
+#LongSoundFile@samp.rate # This is the sample rate
 
 # We can also read in the selection table made in Raven using the following code
 SelectionTableName <- 'data/ExploratoryAnalysis/S11_20180319_060002.Table.1.selections.txt' 
@@ -61,7 +61,7 @@ ggboxplot(data=SoundscapeTable,x='Call.type',y='Freq.95...Hz.')
 FemaleGibbonFile <- readWave("data/ExploratoryAnalysis/SoundFiles/female.gibbon_2.wav")
 
 # There are many different packages that you can use to create spectrograms; here are two
-seewave::spectro(FemaleGibbonFile,flim=c(0,2.5))
+#seewave::spectro(FemaleGibbonFile,flim=c(0,2.5))
 
 
 # Part 2. PCA: unsupervised classification ------------------------------------
@@ -150,6 +150,12 @@ ggboxplot(data=SoundscapeTable,x='Call.type',y='Dur.90...s.')
 ggboxplot(data=SoundscapeTable,x='Call.type',y='Freq.5...Hz.')
 ggboxplot(data=SoundscapeTable,x='Call.type',y='Freq.95...Hz.')
 
+# Here is the ggplot2 version in case ggpubr does not work
+# ggplot(SoundscapeTable, aes(x = Call.type, y = Dur.90...s.)) +
+#   geom_boxplot() +
+#   labs(x = "Call Type", y = "Duration (90th percentile)") +
+#   theme_bw()
+
 # You will get a warning message that the variables are collinear; this is OK
 pairs(DataTrain[,c(8:11)])
 
@@ -229,5 +235,12 @@ my_plot_BorneoCallTypes.ldanoinsect <-ggscatter(data = newdatanoinsect,x = 'lda.
 
 my_plot_BorneoCallTypes.ldanoinsect
 
+# Here is the ggplot2 version in case ggpubr does not work
+# ggplot(newdatanoinsect, aes(x = lda.LD1, y = lda.LD2, color = class)) +
+#   geom_point() +
+#   stat_ellipse(level = 0.95) +
+#   ggtitle('Borneo call types LDA') +
+#   xlab("LD1") +
+#   ylab("LD2")
 
 
